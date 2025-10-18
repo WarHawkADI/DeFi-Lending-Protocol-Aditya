@@ -1,0 +1,4 @@
+# Vyper build artifacts
+*.json
+*.v.py
+__pycache__/

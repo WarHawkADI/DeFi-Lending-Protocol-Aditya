@@ -1,0 +1,84 @@
+# DeFi Lending Protocol Configuration
+# Author: Aditya Rai
+
+# Protocol Parameters
+protocol:
+  name: "Aditya's DeFi Lending Protocol"
+  version: "1.0.0"
+  min_collateral_ratio: 150  # 150%
+  liquidation_threshold: 120  # 120%
+  liquidation_bonus: 10  # 10%
+  protocol_fee: 1  # 1%
+  
+# Interest Rate Model
+interest_rates:
+  base_rate: 2  # 2% base rate
+  optimal_utilization: 80  # 80%
+  slope_1: 4  # Below optimal utilization
+  slope_2: 75  # Above optimal utilization
+  max_rate: 50  # 50% maximum
+
+# Loan Parameters
+loans:
+  min_duration_days: 1
+  max_duration_days: 365
+  max_extension_days: 90
+  min_loan_amount: 100
+  max_loan_amount: 1000000
+
+# Governance Parameters
+governance:
+  proposal_duration_seconds: 259200  # 3 days
+  voting_delay_seconds: 86400  # 1 day
+  quorum_percentage: 10  # 10%
+  min_voting_power: 100
+
+# Security Settings
+security:
+  enable_flash_loan_protection: true
+  enable_reentrancy_guard: true
+  enable_pause_mechanism: true
+  max_slippage_percentage: 5
+
+# Supported Networks
+networks:
+  mainnet:
+    chain_id: 1
+    name: "Ethereum Mainnet"
+    explorer: "https://etherscan.io"
+  
+  goerli:
+    chain_id: 5
+    name: "Goerli Testnet"
+    explorer: "https://goerli.etherscan.io"
+  
+  sepolia:
+    chain_id: 11155111
+    name: "Sepolia Testnet"
+    explorer: "https://sepolia.etherscan.io"
+  
+  local:
+    chain_id: 1337
+    name: "Local Development"
+    explorer: "http://localhost:8545"
+
+# Oracle Configuration
+oracles:
+  chainlink:
+    eth_usd: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    btc_usd: "0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c"
+    link_usd: "0x2c1d072e956AFFC0D435Cb7AC38EF18d24d9127c"
+
+# Monitoring & Alerts
+monitoring:
+  enable_events: true
+  alert_on_liquidation: true
+  alert_on_large_loans: true
+  large_loan_threshold: 100000
+
+# Testing Configuration
+testing:
+  use_mock_oracles: true
+  default_test_amount: 1000
+  default_test_collateral: 1500
+  default_test_duration: 30
